@@ -87,18 +87,18 @@
             <h2>Select Product Details</h2>
             <label for="product">Product:</label>
             <select id="product" onchange="showSelectedProductImage()">
-                <option value="product1" data-image="Aje_Mika_Draped_Split_Maxi_Dress_small.jpg">Aje Dress 1 <img src="product1.jpg" alt="Aje Dress 1"></option>
-                <option value="product2" data-image="Winona_Odyssey_Frill_Maxi_Dress_small.jpg">Winona Dress 1 <img src="product2.jpg" alt="Product 2"></option>
-                <option value="product2" data-image="Acler_Queensbridge_Golden_Dress_small.jpg">Acler Dress 1 <img src="product2.jpg" alt="Product 3"></option>
-                <option value="product2" data-image="L'idée_Emerald_Green_Gisele_Gown_small.jpg">L'idée Dress 1 <img src="product2.jpg" alt="Product 4"></option>
-                <option value="product2" data-image="Aje_Manifestation_Gown_small.jpg">Aje Dress 2 <img src="product2.jpg" alt="Product 5"></option>
-                <option value="product2" data-image="Winona_Pilgrim_Waist_Knot_Dress-small.jpg">Winona Dress 2 <img src="product2.jpg" alt="Product 6"></option>
-                <option value="product2" data-image="Acler_Sherwood_Dress_small.jpg">Acler Dress 2 <img src="product2.jpg" alt="Product 7"></option>
-                <option value="product2" data-image="L'idée_Klum_Gown_small.jpg">L'idée Dress 2 <img src="product2.jpg" alt="Product 8"></option>
-                <option value="product2" data-image="Aje_Hybrid_Midi_Dress_small.jpg">Aje Dress 3 <img src="product2.jpg" alt="Product 9"></option>
-                <option value="product2" data-image="Winona_Alani_Zip_Back_Dress-small.jpg">Winona Dress 3 <img src="product2.jpg" alt="Product 10"></option>
-                <option value="product2" data-image="Acler_Empire_Dress_small.jpg">Acler Dress 3 <img src="product2.jpg" alt="Product 11"></option>
-                <option value="product2" data-image="L'idée_De_Luxe_Mini.jpg">L'idée Dress 3 <img src="product2.jpg" alt="Product 12"></option>
+                <option value="product1" data-price="189" data-image="Aje_Mika_Draped_Split_Maxi_Dress_small.jpg">Aje Dress 1 <img src="product1.jpg" alt="Aje Dress 1"></option>
+                <option value="product2" data-price="89" data-image="Winona_Odyssey_Frill_Maxi_Dress_small.jpg">Winona Dress 1 <img src="product2.jpg" alt="Product 2"></option>
+                <option value="product2" data-price="119" data-image="Acler_Queensbridge_Golden_Dress_small.jpg">Acler Dress 1 <img src="product2.jpg" alt="Product 3"></option>
+                <option value="product2" data-price="89" data-image="L'idée_Emerald_Green_Gisele_Gown_small.jpg">L'idée Dress 1 <img src="product2.jpg" alt="Product 4"></option>
+                <option value="product2" data-price="279" data-image="Aje_Manifestation_Gown_small.jpg">Aje Dress 2 <img src="product2.jpg" alt="Product 5"></option>
+                <option value="product2" data-price="89" data-image="Winona_Pilgrim_Waist_Knot_Dress-small.jpg">Winona Dress 2 <img src="product2.jpg" alt="Product 6"></option>
+                <option value="product2" data-price="99" data-image="Acler_Sherwood_Dress_small.jpg">Acler Dress 2 <img src="product2.jpg" alt="Product 7"></option>
+                <option value="product2" data-price="109" data-image="L'idée_Klum_Gown_small.jpg">L'idée Dress 2 <img src="product2.jpg" alt="Product 8"></option>
+                <option value="product2" data-price="180" data-image="Aje_Hybrid_Midi_Dress_small.jpg">Aje Dress 3 <img src="product2.jpg" alt="Product 9"></option>
+                <option value="product2" data-price="79" data-image="Winona_Alani_Zip_Back_Dress-small.jpg">Winona Dress 3 <img src="product2.jpg" alt="Product 10"></option>
+                <option value="product2" data-price="139" data-image="Acler_Empire_Dress_small.jpg">Acler Dress 3 <img src="product2.jpg" alt="Product 11"></option>
+                <option value="product2" data-price="80" data-image="L'idée_De_Luxe_Mini.jpg">L'idée Dress 3 <img src="product2.jpg" alt="Product 12"></option>
             </select>
 
             <div id="selected-product-img" class="selected-product-img"></div>
@@ -271,17 +271,15 @@
                 nextPage();
             }
 
-            function calculateTotalPrice(product, size) {
+            function calculateTotalPrice(product) {
                 // Perform calculations to determine the total price
-                var basePrice = 50; // Example base price
-                var sizePrice = 10; // Example price increment based on size
+                var selectedProduct = document.getElementById("product");
+                var selectedOption = selectedProduct.options[selectedProduct.selectedIndex];
+                var price = parseFloat(selectedOption.getAttribute("data-price"));
 
-                // Add any additional calculations based on the selected product and size
+                // Perform additional calculations or adjustments if needed
 
-                // Example calculation: base price + size price
-                var totalPrice = basePrice + sizePrice;
-
-                return totalPrice.toFixed(2); // Return the total price with 2 decimal places
+                return price.toFixed(2); // Return the total price with 2 decimal places
             }
 
             function calculateReturnDate(rentDate) {
