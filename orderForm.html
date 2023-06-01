@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>THE DESIGNER VAULT</title>
+    <link href="theDesignerVault.css" rel="stylesheet" type="text/css">
+    <script src="header.js"></script>
+</head>
+<style>
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+        text-align: center;
+        padding: 20px;
+    }
+    label {
+        display: block;
+        margin-top: 10px;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    select {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+    }
+    button {
+        margin-top: 10px;
+        padding: 10px 20px;
+    }
+    .product-option {
+        display: flex;
+        align-items: center;
+    }
+    .product-option img {
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+    }
+    .page {
+        display: none;
+    }
+    .selected-product-img {
+        display: none;
+        width: 100px;
+        height: 100px;
+        margin-top: 10px;
+    }
+    .order-product-img {
+        width: 100px;
+        height: 150px;
+        margin: 10px auto;
+    }
+
+</style>
+</head>
+<body>
+<form id="orderForm">
+    <img src="logoCircle.svg" height="150" id="center" alt="orderform logo">
+    <h1>Book Your Rental</h1>
+
+    <div class="container">
+        <!-- Page 1: Create Account -->
+        <div class="page" id="page1">
+            <h2>Create an Account</h2>
+            <label for="first-name">First Name:</label>
+            <input type="text" id="first-name">
+
+            <label for="last-name">Last Name:</label>
+            <input type="text" id="last-name">
+
+            <label for="email">Email:</label>
+            <input type="email" id="email">
+
+            <label for="password">Password:</label>
+            <input type="password" id="password">
+            <p align="center"><i><b>* Password must contain a minimum of 8 charcters, at least one letter and one number. No special characters (?=.*[!@#$%^&*]) </b></i></p>
+
+            <button onclick="nextPage()">Next</button>
+        </div>
+
+        <!-- Page 2: Select Product Details -->
+        <div class="page" id="page2">
+            <h2>Select Product Details</h2>
+            <label for="product">Product:</label>
+            <select id="product" onchange="showSelectedProductImage()">
+                <option value="product1" data-image="Aje_Mika_Draped_Split_Maxi_Dress_small.jpg">Aje Dress 1 <img src="product1.jpg" alt="Aje Dress 1"></option>
+                <option value="product2" data-image="Winona_Odyssey_Frill_Maxi_Dress_small.jpg">Winona Dress 1 <img src="product2.jpg" alt="Product 2"></option>
+                <option value="product2" data-image="Acler_Queensbridge_Golden_Dress_small.jpg">Acler Dress 1 <img src="product2.jpg" alt="Product 3"></option>
+                <option value="product2" data-image="L'idée_Emerald_Green_Gisele_Gown_small.jpg">L'idée Dress 1 <img src="product2.jpg" alt="Product 4"></option>
+                <option value="product2" data-image="Aje_Manifestation_Gown_small.jpg">Aje Dress 2 <img src="product2.jpg" alt="Product 5"></option>
+                <option value="product2" data-image="Winona_Pilgrim_Waist_Knot_Dress-small.jpg">Winona Dress 2 <img src="product2.jpg" alt="Product 6"></option>
+                <option value="product2" data-image="Acler_Sherwood_Dress_small.jpg">Acler Dress 2 <img src="product2.jpg" alt="Product 7"></option>
+                <option value="product2" data-image="L'idée_Klum_Gown_small.jpg">L'idée Dress 2 <img src="product2.jpg" alt="Product 8"></option>
+                <option value="product2" data-image="Aje_Hybrid_Midi_Dress_small.jpg">Aje Dress 3 <img src="product2.jpg" alt="Product 9"></option>
+                <option value="product2" data-image="Winona_Alani_Zip_Back_Dress-small.jpg">Winona Dress 3 <img src="product2.jpg" alt="Product 10"></option>
+                <option value="product2" data-image="Acler_Empire_Dress_small.jpg">Acler Dress 3 <img src="product2.jpg" alt="Product 11"></option>
+                <option value="product2" data-image="L'idée_De_Luxe_Mini.jpg">L'idée Dress 3 <img src="product2.jpg" alt="Product 12"></option>
+            </select>
+
+            <div id="selected-product-img" class="selected-product-img"></div>
+
+            <label for="size">Size:</label>
+            <select id="size">
+                <option value="6">6</option>
+                <option value="8">8</option>
+                <option value="10">10</option>
+                <option value="12">12</option>
+                <option value="14">14</option>
+                <option value="16">16</option>
+                <option value="18">18</option>
+                <option value="20">20</option>
+            </select>
+
+            <label for="rent-date">Rent Date: (Rental period is 4 days)</label>
+            <input type="date" id="rent-date">
+
+            <button onclick="previousPage()">Back</button>
+            <button onclick="nextPage()">Next</button>
+        </div>
+
+        <!-- Page 3: Shipping Details -->
+        <div class="page" id="page3">
+            <h2>Shipping Details</h2>
+            <label for="address">Address:</label>
+            <input type="text" id="address">
+
+            <label for="city">City:</label>
+            <input type="text" id="city">
+
+            <label for="region">Region:</label>
+            <input type="text" id="region">
+
+            <label for="postcode">Post Code:</label>
+            <input type="text" id="postcode">
+
+            <button onclick="previousPage()">Back</button>
+            <button onclick="nextPage()">Next</button>
+        </div>
+
+        <div class="page" id="page4">
+            <h2>Payment Method</h2>
+
+            <div class="payment-type">
+                <label for="credit-card">
+                    <input type="radio" name="payment" id="credit-card" value="credit-card"> Credit Card
+                </label>
+                <br>
+                <label>*Name on Card</label>
+                <input class="billing-address-name" type="text" name="name">
+                <label>*Credit Card Number</label>
+                <input class="credit-card-number" type="number" name="number" inputmode="numeric">
+                <label>*CVV</label>
+                <input class="security-code " inputmode="numeric" type="number" name="cvv">
+                <label>*Expiry MM/YY: </label>
+                <select id="expiryMonth">
+                    <option selected>*Month </option>
+                    <option>01</option>
+                    <option>02</option>
+                    <option>03</option>
+                    <option>04</option>
+                    <option>05</option>
+                    <option>06</option>
+                    <option>07</option>
+                    <option>08</option>
+                    <option>09</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                </select>
+                <select id="expiryYear">
+                    <option selected>*Year</option>
+                    <option>2023</option>
+                    <option>2024</option>
+                    <option>2025</option>
+                    <option>2026</option>
+                    <option>2027</option>
+                    <option>2028</option>
+                    <option>2029</option>
+                    <option>2030</option>
+                </select>
+                <br>
+                <br>
+                <label for="paypal">
+                    <input type="radio" name="payment" id="paypal" value="paypal"> PayPal
+                </label>
+                <br>
+                </div>
+            <input type="checkbox" id="terms-checkbox" name="agree" unchecked required> * I have read and agree to the <a href="terms&Conditions.html" target="_blank">Terms and Conditions and Privacy Policy</a>
+            <! URL for Ts & Cs opens in new tab so don't lose order using target="_blank"!>
+            <br>
+            <button onclick="previousPage()">Back</button>
+            <button id="submit-button" onclick="submitForm()">Submit</button>
+        </div>
+
+        <!-- Page 5: Order Confirmation -->
+        <div class="page" id="page5">
+            <h2>Order Confirmation</h2>
+            <p>Thank you for your order!</p>
+            <p>Order Details:</p>
+            <div id="order-details"></div>
+
+            <button onclick="location.reload()">Rent Again </button>
+        </div>
+    </div>
+
+    <script>
+        var currentPage = 1;
+        var totalPage = 5;
+
+        function showPage(pageNumber) {
+            var pages = document.getElementsByClassName("page");
+            for (var i = 0; i < pages.length; i++) {
+                pages[i].style.display = "none";
+            }
+            document.getElementById("page" + pageNumber).style.display = "block";
+        }
+
+        function nextPage() {
+            if (currentPage < totalPage) {
+                currentPage++;
+                showPage(currentPage);
+            }
+        }
+
+        function previousPage() {
+            if (currentPage > 1) {
+                currentPage--;
+                showPage(currentPage);
+            }
+        }
+
+            function submitForm() {
+                var product = document.getElementById("product").value;
+                var size = document.getElementById("size").value;
+                var rentDate = document.getElementById("rent-date").value;
+                var address = document.getElementById("address").value;
+                var city = document.getElementById("city").value;
+                var state = document.getElementById("region").value;
+                var zip = document.getElementById("postcode").value;
+
+                // Calculate total price based on the selected product and size
+                var totalPrice = calculateTotalPrice(product, size);
+
+                // Calculate return date as 4 days after the rent date
+                var returnDate = calculateReturnDate(rentDate);
+
+                // Calculate grand total including shipping fee
+                var shippingFee = 10;
+                var grandTotal = (parseFloat(totalPrice) + shippingFee).toFixed(2);
+
+                // Create order details HTML markup
+                var orderDetailsHTML = `
+        <p><strong>Product:</strong> Aje Dress 1</p>
+        <img class="order-product-img" src="Aje_Mika_Draped_Split_Maxi_Dress_small.jpg" alt="Product Image">
+        <p><strong>Size:</strong> ${size}</p>
+        <p><strong>Rental Period:</strong> ${rentDate} - ${returnDate}</p>
+        <p><strong>Shipping Address:</strong></p>
+        <p>${address}, ${city}, ${state} ${zip}</p>
+        <p><strong>Total Price:</strong> $${totalPrice}</p>
+        <p><strong>Shipping Fee:</strong> $${shippingFee}</p>
+        <p><strong>Grand Total:</strong> $${grandTotal}</p>
+      `;
+
+                // Update order details on the confirmation page
+                document.getElementById("order-details").innerHTML = orderDetailsHTML;
+
+                nextPage();
+            }
+
+            function calculateTotalPrice(product, size) {
+                // Perform calculations to determine the total price
+                var basePrice = 50; // Example base price
+                var sizePrice = 10; // Example price increment based on size
+
+                // Add any additional calculations based on the selected product and size
+
+                // Example calculation: base price + size price
+                var totalPrice = basePrice + sizePrice;
+
+                return totalPrice.toFixed(2); // Return the total price with 2 decimal places
+            }
+
+            function calculateReturnDate(rentDate) {
+                // Calculate return date as 4 days after the rent date
+                var rentDateObj = new Date(rentDate);
+                rentDateObj.setDate(rentDateObj.getDate() + 4);
+                var returnDate = rentDateObj.toDateString();
+                return returnDate;
+            }
+
+            function showSelectedProductImage() {
+                var selectedProduct = document.getElementById("product");
+                var selectedOption = selectedProduct.options[selectedProduct.selectedIndex];
+                var imageSrc = selectedOption.getAttribute("data-image");
+
+                var selectedProductImg = document.getElementById("selected-product-img");
+                if (imageSrc) {
+                    selectedProductImg.innerHTML = "<img src='" + imageSrc + "' alt='Selected Product'>";
+                    selectedProductImg.style.display = "block";
+                } else {
+                    selectedProductImg.innerHTML = "";
+                    selectedProductImg.style.display = "none";
+                }
+            }
+
+        showPage(currentPage);
+        document.getElementById("submit-button").addEventListener("click", function(event) {
+            event.preventDefault();
+            confirmOrder();
+        });
+
+        function confirmOrder() {
+            var termsCheckbox = document.getElementById("terms-checkbox");
+            if (!termsCheckbox.checked) {
+                alert("Please agree to the Terms and Conditions and Privacy Policy.");
+                return;
+            }
+
+            nextPage();
+        }
+    </script>
+</form>
+</body>
+<script src="footer.js"></script>
+</html>

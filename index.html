@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>THE DESIGNER VAULT</title>
+    <link href="theDesignerVault.css" rel="stylesheet" type="text/css">
+    <script src="header.js"></script>
+
+    <style>
+        #cookie-consent {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 300px;
+            background-color: floralwhite;
+            border: 1px solid #ccc;
+            padding: 10px;
+            display: none;
+        }
+
+        #cookie-consent p {
+            margin: 5px 0;
+        }
+
+        #cookie-consent button {
+            background-color: #fce3ee;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+
+        #cookie-consent button.decline {
+            background-color: #fce3ee;
+        }
+    </style>
+    <script>
+        function setCookie(name, value, days) {
+            var expires = "";
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "") + expires + "; path=/";
+        }
+
+        function getCookie(name) {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+
+        function acceptCookies() {
+            setCookie('cookiesAccepted', 'true', 365);
+            hideCookieConsent();
+        }
+
+        function declineCookies() {
+            setCookie('cookiesAccepted', 'false', 365);
+            hideCookieConsent();
+        }
+
+        function hideCookieConsent() {
+            var consent = document.getElementById('cookie-consent');
+            if (consent) {
+                consent.style.display = 'none';
+            }
+        }
+
+        function showCookieConsent() {
+            var consent = document.getElementById('cookie-consent');
+            if (consent) {
+                consent.style.display = 'block';
+            }
+        }
+
+        window.addEventListener('load', function() {
+            var accepted = getCookie('cookiesAccepted');
+            if (accepted === 'true') {
+                hideCookieConsent();
+            } else if (accepted === 'false') {
+                // Handle the decline action if needed
+            } else {
+                showCookieConsent();
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="home-wrap">
+        <br>
+        <h3> Rent from our exclusive collection of ethically sourced designer pieces for your next event.<br>
+            We offer the widest and most inclusive range of rental options in New Zealand,<br>
+            bringing together all your favorite rental brands. Discover the perfect outfit<br>
+            that aligns with your values and showcases your unique style.</h3>
+        <br>
+
+    <!-- Setup the slideshow container-->
+        <div class="slideshow-container">
+            <!-- Setup the images and text that are going to be in the slideshow-->
+            <div class="mySlides fade">
+                <img src="slide1.png" style="width:1000px;height:400px;" alt="doggy biscuits slideshow">
+            </div>
+
+            <div class="mySlides fade">
+                <img src="slide2.jpg" style="width:1000px;height:400px" alt="paw pops slideshow">
+            </div>
+
+            <div class="mySlides fade">
+                <img src="slide3.jpg" style="width:1000px;height:400px" alt="puppy scoop slideshow">
+            </div>
+        </div>
+        <br>
+        <script>
+            var slideIndex = 0;
+            showSlides();
+
+            //Thumbnail image controls
+            function currentSlide(n){
+                showSlides(slideIndex = n);
+            }
+            function showSlides() {
+                var i;
+                var slides = document.getElementsByClassName("mySlides");
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                slideIndex++;
+                if (slideIndex > slides.length) {
+                    slideIndex = 1
+                }
+                slides[slideIndex - 1].style.display = "block";
+                setTimeout(showSlides, 4000); //change image every 4 seconds
+            }
+        </script>
+
+        <!-- Setup the indicator dots to show where you are in the slideshow-->
+        <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+
+
+        <div class="wrapper">
+            <div class="testimonial">
+                <header class="section-header text-center">
+                    <h2>Testimonials</h2>
+                </header>
+                <div class="item">
+                    <div class="img">
+                        <img src="Aje_Mika_Draped_Split_Maxi_Dress.jpg" alt="happy_client_1">
+                    </div>
+                    <div class="name"><h2>Aje Dress 1</h2></div>
+                    <div class="content">
+                        <p>
+                            "I absolutely loved this dress, having the virtual try on made renting so easy!!" - Alice
+                        </p>
+                        <div class="stars">
+                            <img src="star.png" alt="stars">
+                            <img src="star.png" alt="stars">
+                            <img src="star.png" alt="stars">
+                            <img src="star.png" alt="stars">
+                            <img src="star.png" alt="stars">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="img">
+                        <img src="Aje_Manifestation_Gown.jpg" alt="happy_customer_2">
+                    </div>
+                    <div class="name"><h2>Aje Dress 2</h2></div>
+                    <div class="content">
+                        <p>
+                            "Now I can wear a new garment at every event and not feel guilty!! Best clothing rental ever!!" - Lucy
+                        </p>
+                        <div class="stars">
+                            <img src="star.png" alt="stars">
+                            <img src="star.png" alt="stars">
+                            <img src="star.png" alt="stars">
+                            <img src="star.png" alt="stars">
+                            <img src="star.png" alt="stars">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="img">
+                        <img src="Aje_Hybrid_Midi_Dress.jpg" alt="happy_customer_3">
+                    </div>
+                    <div class="name"><h2>Aje Dress 3</h2></div>
+                    <div class="content">
+                        <p>
+                            "This dress fit perfectly, thanks to the virtual fitting room!! I will definitely be back :)" - Lauren
+                        </p>
+                        <div class="stars">
+                            <img src="star.png" alt="stars">
+                            <img src="star.png" alt="stars">
+                            <img src="star.png" alt="stars">
+                            <img src="star.png" alt="stars">
+                            <img src="star.png" alt="stars">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="cookie-consent">
+        <p>This website uses cookies to ensure you get the best experience on our website.</p>
+        <button onclick="acceptCookies()">Accept</button>
+        <button onclick="declineCookies()" class="decline">Decline</button>
+    </div>
+</body>
+<div class="footer">
+<script src="footer.js"></script>
+</div>
+</html>

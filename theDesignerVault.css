@@ -1,0 +1,426 @@
+/* Logo in header to be centered and in flexbox  */
+.flex-container {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+a:link
+{
+    color: #936d60;
+}
+a:visited
+{
+    color: darkolivegreen;
+}
+
+/* main body style*/
+body {
+    background-color: #fce3ee;
+    font-weight: normal;
+    font-family: Karla, sans-serif;
+    font-size: 1em;
+    text-align:center;
+    margin: auto;
+}
+
+h1, h2, h3 {
+    font-weight: bold;
+    color: #62463b;
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+
+h4 {
+    color: floralwhite;
+    opacity: 1.0;
+    text-align: center;
+    font-size: 12px;
+}
+h3{
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+/* navigation menu styles */
+nav
+{
+    display: flex;
+    justify-content: center;
+    color: floralwhite;
+    font-family:  Karla, sans-serif;
+    clear: left;
+    margin-top: 5px;
+    padding: 40px;
+}
+nav ul
+{
+    list-style-type: none;
+    margin: auto 0;
+    padding-bottom: inherit;
+}
+ul
+{
+    text-align: center;
+    list-style-type: none;
+    padding-bottom: inherit;
+}
+nav ul li
+{
+    float: left;
+    margin-right: 0.5em;
+}
+nav ul li a
+{
+    padding: 0.25em 1em;
+    text-decoration: none; /*no underline*/
+    background-color: #fce3ee; /*pale peach white*/
+    color: #62463b;/*choc brown*/
+    /*border: 2px solid #62463b;*/
+    /*border-top-left-radius: 1em 1em;*/ /*rounded corner*/
+    /*border-top-right-radius: 1em 1em;*/ /*another rounded corner*/
+}
+
+nav ul li a:hover, nav ul li a:focus {
+    color: #62463b;
+    background-color: floralwhite;
+    font-weight: bold;
+}
+
+/* ORDER FORM */
+#orderForm {
+    outline-style: dotted;
+    color: #62463b;
+    background-color: floralwhite;
+    font-family: "Courier New";
+    padding: 40px;
+    width: 80%;
+    min-width: 800px;
+    margin-top: 10px;
+    margin-right: auto;
+    margin-bottom: 10px;
+    margin-left: auto;
+}
+
+#center { /* centre logo on order form */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input, select, #profile_text{
+    padding: 10px;
+    width: 100%;
+    font-size: 17px;
+    font-family: "Courier New";
+    border: 1px solid #936d60;
+}
+
+/* Mark input boxes that gets an error on validation: */
+input.invalid {
+    background-color: #FFFFCC;
+}
+
+/* Hide all steps by default: */
+.tab {
+    display: none;
+}
+
+button {
+    background-color: #fce3ee;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 17px;
+    font-family: "Courier New";
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+#prevBtn {
+    background-color: #fce3ee;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+    height: 25px;
+    width: 25px;
+    margin: 0 2px;
+    background-color: #fce3ee;
+    border: none;
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.5;
+}
+
+.step.active {
+    opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+    background-color: #fce3ee;
+}
+
+/* ORDER FORM - Any boxes without input will be highlighted this colour */
+
+input.invalid {
+    background-color: #ffdddd;
+}
+
+/*if input deeply is invalid will highlight box in red*/
+
+input.deep_invalid {
+    background-color: #C8A2C8;
+}
+
+/*alert box */
+.swal-button {
+    background-color: #fce3ee;
+}
+
+/* colour when hovering over button*/
+.swal-button:not([disabled]):hover {
+    background-color: #C8A2C8;
+}
+
+/* ORDER FORM Table display */
+table {
+    color: #FFFFFF;
+    text-align: center;
+    font-family:  Karla, sans-serif;
+    margin: 0 auto; /* this is a trick for centering certain elements */
+    background-color: #62463b;
+}
+
+th, td {
+    background-color: white;
+    color: #62463b;
+    padding: 0.75em;
+    margin: 1px;
+}
+
+#orderbutton1, #orderbutton2, #orderbutton3{
+    background-color: #fce3ee;
+    color: white;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/*ABOUT US - flexbox */
+.Flex-container-About-us {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    outline-style: dotted;
+    color: #62463b;
+    background-color: floralwhite;
+    font-family:  Karla, sans-serif;
+    padding: 40px;
+    width: 60%;
+    min-width: 800px;
+    margin: 10px auto;
+}
+
+.flex-item {
+    width: 450px;
+    height: 550px;
+    text-align: left;
+    margin: 25px;
+    padding-bottom: 10px;
+}
+
+.Contact-us {
+    text-align: center;
+}
+
+.image-about-us {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.logo-link {
+    pointer-events: none;
+}
+
+/* DETAILS & HOME PAGE */
+.home-wrap{
+    background-color: floralwhite;
+    margin-top: 6px;
+}
+
+/*Slideshow container*/
+.slideshow-container{
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+}
+
+/*Hide the images by default*/
+.slideshow-container .mySlides{
+    display: none;
+}
+
+/*The dots/bullets/indicators*/
+.dot{
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #f0d9d3;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.fade{
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade{
+    from{opacity: .4}
+    to{opacity: 1}
+}
+
+@keyframes fade{
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+.wrapper{
+    overflow: auto;
+    padding-bottom: 20px;
+    height: 700px;
+    animation-name: animation;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+}
+@keyframes animation{
+    0%{color:#62463b;}
+    25%{color:saddlebrown}
+    50%{color:rosybrown}
+    100%{color:#f0d9d3;}
+}
+
+.testimonial{
+    width: 720px;
+    height: auto;
+    margin: 120px auto;
+    padding-bottom: 350px;
+}
+
+.testimonial .item{
+    width:220px;
+    margin: 0 10px;
+    float: left;
+    background: #f0d9d3;
+    border-radius: 25px;
+}
+
+.testimonial .item .img{
+    padding: 20px;
+}
+
+.testimonial .item .img img{
+    width: 150px;
+    display: block;
+    margin: 0 auto;
+}
+
+.testimonial .item .name{
+    margin-bottom: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.testimonial .item .content{
+    background: white;
+    padding: 10px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    text-align: center;
+}
+
+.testimonial .item .content p{
+    line-height: 20px;
+    margin-bottom: 15px;
+}
+
+.testimonial .item .content .stars img{
+    width: 25px;
+}
+
+.footer {
+    margin-top:10px;
+    text-align:center;
+    font-size:15px;
+    color:floralwhite;
+}
+
+a:hover, a:focus
+{
+    background-color: floralwhite;
+    color: #6C5B7B;
+}
+
+/*-------------------Details Page---------------------*/
+.product-row{
+    max-width: 1300px;
+    height: 700px;
+    margin: 0 auto;
+    padding: 15px;
+    display: flex;
+}
+.left-column{
+    width: 50%;
+    position: relative;
+}
+.right-column{
+    width: 50%;
+    margin-top: 30px;
+    padding-left: 25px;
+}
+.left-column img{
+    height: 600px;
+    width: 600px;
+    position: absolute;
+    display: block;
+    left: 0;
+    top: 0;
+    background-color: white;
+}
+.product-description{
+    border-bottom: 1px solid #fce3ee;
+    margin-bottom: 30px;
+}
+.product-description h1{
+    font-weight: 300;
+    font-size:52px;
+    letter-spacing: -2px;
+}
+.product-description p{
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 24px;
+}
+.text-block{
+    position: absolute;
+    bottom: 90px;
+    right: 60px;
+    background-color: #fce3ee;
+    opacity: 85%;
+    colour: floralwhite;
+    padding-left: 20px;
+    padding-right: 20px;
+}

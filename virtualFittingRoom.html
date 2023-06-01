@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>THE DESIGNER VAULT</title>
+    <link href="theDesignerVault.css" rel="stylesheet" type="text/css">
+    <script src="header.js"></script>
+
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 150vh;
+        /*margin-top: 100px;*/ /* Add top margin to avoid overlapping with navigation menu */
+    }
+
+    .product-image {
+        width: 300px;
+        height: 400px;
+        margin-bottom: 20px;
+    }
+
+    .upload-button {
+        display: none;
+    }
+
+    .upload-label {
+        background-color: #fce3ee;
+        color: white;
+        padding: 10px 20px;
+        cursor: pointer;
+        margin-bottom: 10px;
+    }
+
+    .upload-label:hover {
+        background-color: #936d60;
+    }
+
+    .uploaded-image {
+        max-width: 100%;
+        max-height: 400px;
+        margin-bottom: 20px;
+    }
+
+    .fit-button {
+        background-color: #fce3ee;
+        color: white;
+        padding: 10px 20px;
+        cursor: pointer;
+        margin-bottom: 10px;
+    }
+
+    .fit-button:hover {
+        background-color: #936d60;
+    }
+
+    .product-dropdown {
+        width: 450px;
+        margin-bottom: 10px;
+    }
+</style>
+</head>
+<body>
+<div class="home-wrap">
+    <main class="container">
+        <h3>Virtual Fitting Room</h3>
+        <select id="product-dropdown" class="product-dropdown" onchange="showSelectedProductImage()">
+            <option value="Aje Dress 1">Aje Dress 1</option>
+            <option value="Winona Dress 1">Winona Dress 1</option>
+            <option value="Acler Dress 1">Acler Dress 1</option>
+            <option value="L'idée Dress 1">L'idée Dress 1</option>
+            <option value="Aje Dress 2">Aje Dress 2</option>
+            <option value="Winona Dress 2">Winona Dress 2</option>
+            <option value="Acler Dress 2">Acler Dress 2</option>
+            <option value="L'idée Dress 2">L'idée Dress 2</option>
+            <option value="Aje Dress 3">Aje Dress 3</option>
+            <option value="Winona Dress 3">Winona Dress 3</option>
+            <option value="Acler Dress 3">Acler Dress 3</option>
+            <option value="L'idée Dress 3">L'idée Dress 3</option>
+        </select>
+        <img id="product-img" class="product-image" src="Aje_Mika_Draped_Split_Maxi_Dress.jpg" alt="Product Image">
+        <input id="upload-input" class="upload-button" type="file" accept="image/*" onchange="previewImage(event)">
+        <label for="upload-input" class="upload-label">Upload Your Image</label>
+        <img id="uploaded-img" class="uploaded-image" src="mannequin.jpg" alt="Uploaded Image">
+        <button id="fit-button" class="fit-button" onclick="fitProduct()">Try On</button>
+    </main>
+
+    <script>
+        function previewImage(event) {
+            var uploadedImage = document.getElementById("uploaded-img");
+            uploadedImage.src = URL.createObjectURL(event.target.files[0]);
+            uploadedImage.style.display = "block";
+
+        }
+
+        function fitProduct() {
+            // Code to fit the product on the uploaded image
+            // You can use computer vision techniques or image processing libraries to accomplish this task
+            alert("Product fitted! You can see the result on your uploaded image.");
+        }
+
+        function showSelectedProductImage() {
+            var selectedProduct = document.getElementById("product-dropdown").value;
+            var productImg = document.getElementById("product-img");
+
+            // Update the product image based on the selected product
+            if (selectedProduct === "Aje Dress 1") {
+                productImg.src = "Aje_Mika_Draped_Split_Maxi_Dress.jpg";
+            } else if (selectedProduct === "Winona Dress 1") {
+                productImg.src = "Winona_Odyssey_Frill_Maxi_Dress.jpg";
+            } else if (selectedProduct === "Acler Dress 1") {
+                productImg.src = "Acler_Queensbridge_Golden_Dress.jpg";
+            } else if (selectedProduct === "L'idée Dress 1") {
+                productImg.src = "L'idée_Emerald_Green_Gisele_Gown.jpg";
+            } else if (selectedProduct === "Aje Dress 2") {
+                productImg.src = "Aje_Manifestation_Gown.jpg";
+            } else if (selectedProduct === "Winona Dress 2") {
+                productImg.src = "Winona_Pilgrim_Waist_Knot_Dress.jpg";
+            } else if (selectedProduct === "Acler Dress 2") {
+                productImg.src = "Acler_Sherwood_Dress.jpg";
+            } else if (selectedProduct === "L'idée Dress 2") {
+                productImg.src = "L'idée_Klum_Gown.jpg";
+            } else if (selectedProduct === "Aje Dress 3") {
+                productImg.src = "Aje_Hybrid_Midi_Dress.jpg";
+            } else if (selectedProduct === "Winona Dress 3") {
+                productImg.src = "Winona_Alani_Zip_Back_Dress.jpg";
+            } else if (selectedProduct === "Acler Dress 3") {
+                productImg.src = "Acler_Empire_Dress.jpg";
+            } else if (selectedProduct === "L'idée Dress 3") {
+                productImg.src = "L'idée_De_Luxe_Mini.jpg";
+            }
+        }
+
+    </script>
+</div>
+</body>
+<div class="footer">
+    <script src="footer.js"></script>
+</div>
+</html>

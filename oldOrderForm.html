@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>THE DESIGNER VAULT</title>
+    <link href="theDesignerVault.css" rel="stylesheet" type="text/css">
+    <script src="header.js"></script>
+</head>
+<body>
+<form id="orderForm">
+    <img src="dotted border.png" height="150" id="center" alt="orderform logo">
+    <h1>Order Form</h1>
+    <div class="tab name">Create Your Account:
+        <p><input placeholder="*First name..."  oninput="this.className = ''" name="name" required></p>
+        <p><input placeholder="Last name..."  oninput="this.className = ''" name="name"></p>
+    </div>
+    <div class="tab password"> Create Your Account:
+        <p><input placeholder="*Password..." oninput="this.className = ''" name="login_pass" type="password"></p>
+        <p align="center"><i><b>* Password must contain a minimum of 8 charcters, at least one letter and one number. No special characters (?=.*[!@#$%^&*]) </b></i></p>
+    </div>
+    <div class="tab email">Create Your Account:
+        <p><input placeholder="*E-mail..." oninput="this.className = ''" type="email" name="email" required></p>
+        <p><input placeholder="Phone..."  oninput="this.className = ''" name="ph_number" type="number"></p>
+    </div>
+    <div class="tab">
+        <table id="OrderTable">
+            <p align="center">* Express shipping (1-2 days) costs $10 and has already been applied to your total.<br>
+                Please note all our rentals are 5-day rentals.<br>
+                Enter '0' if you do not wish to purchase a particular product.</p>
+            <tr>
+                <th>Doggy Treats</th>
+                <th>Image</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+            <tr>
+                <td>Paw Pops Popsicles</td>
+                <td><img src="Aje_Mika_Draped_Split_Maxi_Dress.jpg" alt="Paw Pops" height="150"></td>
+                <td><input type="text" id="QtyA"></td>
+                <td>$11.00</td>
+                <td id="TotalA"></td>
+
+                <label for="size">Size:</label>
+                <select id="size">
+                    <option value="small">Small</option>
+                    <option value="medium">Medium</option>
+                    <option value="large">Large</option>
+                </select>
+
+                <label for="rent-date">Rent Date:</label>
+                <input type="date" id="rent-date">
+            </tr>
+
+            <tr>
+                <td>Posh Pooch Wine For Dogs</td>
+                <td><img src="Posh Pooch.jpg" alt="Posh Pooch" height="150"></td>
+                <td><input type="text" id="QtyB"></td>
+                <td>$5.00</td>
+                <td id="TotalB"></td>
+            </tr>
+
+            <tr>
+                <td>Puppy Scoops Icecream</td>
+                <td><img src="Puppy Scoops.jpg" alt="Puppy Scoops" height="150"></td>
+                <td><input type="text" id="QtyC"></td>
+                <td>$10.50</td>
+                <td id="TotalC"></td>
+            </tr>
+
+            <tr>
+                <td>Homemade Paw Print Cookies</td>
+                <td><img src="Doggy Biscuits.jpg" alt="Doggy Biscuits" height="150"></td>
+                <td><input type="text" id="QtyD"></td>
+                <td>$6</td>
+                <td id="TotalD"></td>
+            </tr>
+
+            <tr>
+                <td>Gift Wrapping</td>
+                <td><img src="Gift Wrapping.jpg" alt="Gift Wrapping" height="150"></td>
+                <td><input type="text" id="QtyE"></td>
+                <td>$3.50</td>
+                <td id="TotalE"></td>
+            </tr>
+
+            <tr>
+                <td>Express Shipping (1-2 days)</td>
+                <td><img src="Express Shipping.jpg" alt="Express Shipping" height="150"></td>
+                <td><input type="text" id="QtyF"></td>
+                <td>$5</td>
+                <td id="TotalF"></td>
+            </tr>
+
+            <tr>
+                <td>Total: </td>
+                <td id="grandTotal" colspan="4"></td>
+            </tr>
+        </table><br>
+        <input type="button" value="Get Grand Total" id="orderbutton1">
+        <p><input type="reset" value="Clear" id="orderbutton2"></p>
+    </div>
+    <div class="tab">Shipping Details:
+        <! input Shipping Details * !>
+        <p><input placeholder="*Street address..." oninput="this.className = ''" name="street"></p>
+         <p><input placeholder="*City..." oninput="this.className = ''" name="city"></p>
+        <p><input placeholder="*Region..." oninput="this.className = ''" name="region"></p>
+        <p><input placeholder="*Postal / Zip code" oninput="this.className = ''" name="postal"></p>
+        <p><select required>
+            <option selected value="1">New Zealand</option>
+            <option value="2">Australia</option>
+            <option value="3">USA</option>
+            <option value="4">China</option>
+            <option value="5">England</option>
+        </select></p>
+        <P>Special Delivery Instructions</P>
+        <textarea id="profile_text" placeholder="Please advise delivery instructions" rows="4" cols="100">
+            </textarea>
+    </div>
+    <div class="tab payment"><h1>Payment:</h1>
+            <label>*Name on Card</label>
+            <input class="billing-address-name" type="text" name="name">
+            <label>*Credit Card Number</label>
+            <input class="credit-card-number" type="number" name="number" inputmode="numeric">
+            <label>*CVV</label>
+            <input class="security-code " inputmode="numeric" type="number" name="cvv">
+        <label>*Expiry MM/YY: </label>
+        <select id="expiryMonth">
+            <option selected>*Month </option>
+            <option>01</option>
+            <option>02</option>
+            <option>03</option>
+            <option>04</option>
+            <option>05</option>
+            <option>06</option>
+            <option>07</option>
+            <option>08</option>
+            <option>09</option>
+            <option>10</option>
+            <option>11</option>
+            <option>12</option>
+        </select>
+        <select id="expiryYear">
+            <option selected>*Year</option>
+            <option>2020</option>
+            <option>2021</option>
+            <option>2022</option>
+            <option>2023</option>
+            <option>2024</option>
+            <option>2025</option>
+            <option>2026</option>
+            <option>2027</option>
+            <option>2028</option>
+            <option>2029</option>
+            <option>2030</option>
+        </select>
+                <p><input type="checkbox"  name="agree" unchecked required > * I have read and agree to the <a href="terms&Conditions.html" target="_blank">Terms and Conditions and Privacy Policy</a></p>
+<! URL for Ts & Cs opens in new tab so don't lose order using target="_blank"!>
+    </div>
+    <div style="overflow:auto;">
+        <div style="float:right;">
+            <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+            <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+        </div>
+    </div>
+    <div style="text-align:center;margin-top:40px;">
+        <span class="step"></span>
+        <span class="step"></span>
+        <span class="step"></span>
+        <span class="step"></span>
+        <span class="step"></span>
+        <span class="step"></span>
+    </div>
+</form>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js">//customised alert boxes using swal instead of alert
+</script>
+<script id="order table">
+    var qtyBoxA = document.getElementById('QtyA');
+    var qtyBoxB = document.getElementById('QtyB');
+    var qtyBoxC = document.getElementById('QtyC');
+    var qtyBoxD = document.getElementById('QtyD');
+    var qtyBoxE = document.getElementById('QtyE');
+    var qtyBoxF = document.getElementById('QtyF');
+
+    var totBoxA = document.getElementById('TotalA');
+    var totBoxB = document.getElementById('TotalB');
+    var totBoxC = document.getElementById('TotalC');
+    var totBoxD = document.getElementById('TotalD');
+    var totBoxE = document.getElementById('TotalE');
+    var totBoxF = document.getElementById('TotalF');
+
+    var grandTot = document.getElementById('grandTotal');
+    var btnGetTot = document.querySelector("input[type=button]");
+    var btnReset = document.querySelector("input[type=reset]");
+
+    qtyBoxA.addEventListener("change", calc);
+    qtyBoxB.addEventListener("change", calc);
+    qtyBoxC.addEventListener("change", calc);
+    qtyBoxD.addEventListener("change", calc);
+    qtyBoxE.addEventListener("change", calc);
+    qtyBoxF.addEventListener("change", calc);
+    btnGetTot.addEventListener("click", getGrandTotal);
+    btnReset.addEventListener("click", reset); //clear
+
+    var gt = null; //grand total starts at $0 before items are added
+
+    function calc() {
+        var priceA = 11; //Paw Pops Popsicles
+        var priceB = 5; //Posh Pooch Wine For Dogs
+        var priceC = 10.50; //Puppy Scoops Icecream
+        var priceD = 6; //Homemade Paw Print Cookies
+        var priceE = 3.50; //Gift Wrapping
+        var priceF = 5; //Express Shipping (1-2 days)
+        gt = 4; //standing shipping default cost
+
+        var qtyA = parseInt(qtyBoxA.value, 10);
+        var qtyB = parseInt(qtyBoxB.value, 10);
+        var qtyC = parseInt(qtyBoxC.value, 10);
+        var qtyD = parseInt(qtyBoxD.value, 10);
+        var qtyE = parseInt(qtyBoxE.value, 10);
+        var qtyF = parseInt(qtyBoxF.value, 10);
+
+        if (!isNaN(qtyA)) { totBoxA.textContent = qtyA * priceA; gt += +totBoxA.textContent; }
+        if (!isNaN(qtyB)) { totBoxB.textContent = qtyB * priceB; gt += +totBoxB.textContent; }
+        if (!isNaN(qtyC)) { totBoxC.textContent = qtyC * priceC; gt += +totBoxC.textContent; }
+        if (!isNaN(qtyD)) { totBoxD.textContent = qtyD * priceD; gt += +totBoxD.textContent; }
+        if (!isNaN(qtyE)) { totBoxE.textContent = qtyE * priceE; gt += +totBoxE.textContent; }
+        if (!isNaN(qtyF)) { totBoxF.textContent = qtyF * priceF; gt += +totBoxF.textContent; }
+
+        grandTot.textContent = "$" + gt.toFixed(2); //use $ and total to 2 decimal points
+    }
+
+    function getGrandTotal(){
+        calc();
+        swal("The total of your order (including shipping) is $" + gt); //add $ sign infront of total was alert
+    }
+
+    function reset(){ //to clear all boxes and input nothing
+        totBoxA.textContent = "";
+        totBoxB.textContent = "";
+        totBoxC.textContent = "";
+        totBoxD.textContent = "";
+        totBoxE.textContent = "";
+        totBoxF.textContent = "";
+        grandTot.textContent = "";
+    }
+</script>
+<script id="order form functions">
+    var currentTab = 0; //sets the current tab in the form to be first or 0 tab
+    showTab(currentTab); //displays the current tab
+
+    function showTab(n) {
+        var x = document.getElementsByClassName("tab");
+        x[n].style.display = "block";
+        if (n == 0) {
+            document.getElementById("prevBtn").style.display = "none";
+        } else {
+            document.getElementById("prevBtn").style.display = "inline";
+        }
+        if (n == (x.length - 1)) {
+            document.getElementById("nextBtn").innerHTML = "Complete Order";
+        } else {
+            document.getElementById("nextBtn").innerHTML = "Next";
+        }
+        fixStepIndicator(n)
+    }
+
+    function nextPrev(n) {
+        var x = document.getElementsByClassName("tab");
+        if (n == 1 && !validateForm()) return false;
+        x[currentTab].style.display = "none";
+        currentTab = currentTab + n;
+        if (currentTab >= x.length) {
+            document.getElementById("orderForm").submit();
+            return false;
+        }
+        showTab(currentTab);
+    }
+
+    function validateForm() {
+
+        // This function deals with validation of the form fields
+        var x, y, valid = true;
+        x = document.getElementsByClassName("tab");
+        y = x[currentTab].getElementsByTagName("input");
+
+        // to ensure text fields do not use these numbers and other characters. The type field number will only allow input of numbers
+        var numbers = /^[-+]?[0-9]+$/;
+
+        // for email validation/formatting
+        var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+        // for password validation/formatting... Minimum 8 characters, at least 1 letter and 1 number, no special characters:
+        var passwordformat = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+
+        //credit card exp date validation.
+        const form = document.getElementById('orderForm');
+        const expiryMonth = document.getElementById('expiryMonth');
+        const expiryYear = document.getElementById('expiryYear');
+        const month = expiryMonth.value;
+        const year = expiryYear.value;
+        const expiryDate = new Date(year + '-' + month + '-01'); //use -1 as array uses 0-11 instead of 1-12
+
+        //ensure unchecked boxes are checked for T&C
+        var checked = document.forms["orderForm"]["agree"].checked;
+
+        for (i = 0; i < y.length; i++) { //below checks if field has been filled in, if not prompts user to fill in before 'next'
+            if (y[i].value == "") {
+                y[i].className += " invalid";
+                valid = false;
+            } else if (y[i].value !== "") {
+                console.log(y[i].parentNode.parentNode.className);
+
+                if (y[i].parentNode.parentNode.className == "tab name") {//text field cannot use numbers e.g. names must use letters
+                    console.log("name");
+                    if (y[i].value.match(numbers)) {
+                        y[i].className += " deep_invalid";
+                        swal("Letter only format please");
+                        valid = false;
+                    } else {
+                        return valid;
+                    }
+                }
+                if (y[i].parentNode.parentNode.className == "tab password") {
+                    console.log("email password");
+                    if (y[i].type == "password") {
+                        if (y[i].value.match(passwordformat)) {
+                            console.log("passwordformat");
+                            var reg_pass = y[i].value;
+                            console.log(reg_pass);
+                            return valid;
+                        } else {
+                            console.log("not passwordformat")
+                            y[i].className += " deep_invalid";
+                            swal("Opps! \n\nYour password must contain: \nA minimum of 8 charcters \nAt least one letter \nAt least one number  \nNo special characters (?=.*[!@#$%^&*]) ");
+                            valid = false;
+                        }
+                    }
+                }
+                if (y[i].parentNode.parentNode.className == "tab email") {// email validation as per mailformat variable
+                    console.log("email password");
+                    if (y[i].type == "email") {
+                        if (y[i].value.match(mailformat)) {
+                            console.log("mailformat");
+                            var reg_email = y[i].value;
+                            console.log(reg_email);
+                            return valid;
+                        } else {
+                            console.log("not mailformat")
+                            y[i].className += " deep_invalid";
+                            swal("Please enter a valid email address");
+                            valid = false;
+                        }
+                    }
+                }
+                if (y[i].parentNode.parentNode.className == "tab payment") { //div name tab payment refers to this section
+                    console.log("payment");
+                    if (expiryDate < new Date()) { //can use <=
+                        console.log('fail')// Fails validation, show some error message to user
+                        swal("Oops! \n\nThe card you have entered is expired or there is a typo in the details supplied. \n\nPlease supply a valid credit card.")
+                        valid = false;
+                    }
+                }
+                if (y[i].parentNode.parentNode.className == "tab payment") {
+                    console.log("payment");
+                    if (!checked) {
+                        swal("Oops! \n\nBefore completing your order you must agree to our Terms and Conditions and Privacy Policy by checking the box!"); //
+                        valid = false;
+                    } else {
+                        return valid;
+                    }
+                }
+            }
+        }
+        // If all statements are true then the form is valid and will allow user to mark each step as 'finish' move to next step
+        if (valid) {
+            document.getElementsByClassName("step")[currentTab].className += " finish";
+        }
+        return valid; // return the valid status
+    }
+
+    function fixStepIndicator(n) {
+        // This function removes the "active" class of all steps...
+        var i, x = document.getElementsByClassName("step");
+        for (i = 0; i < x.length; i++) {
+            x[i].className = x[i].className.replace(" active", "");
+        }
+        //... and adds the "active" class to the current step:
+        x[n].className += " active";
+    }
+</script>
+<script src="footer.js"></script>
+</body>
+</html>
